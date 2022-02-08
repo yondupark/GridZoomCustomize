@@ -1172,9 +1172,6 @@ class Grid {
                 duration: 1.2,
                 ease: 'expo.inOut'
             },
-            // overflow hidden
-            onStart: ()=>bodyEl.classList.add('oh')
-            ,
             onComplete: ()=>{
                 this.isAnimating = false;
             }
@@ -1241,9 +1238,6 @@ class Grid {
                 duration: 1,
                 ease: 'expo.inOut'
             },
-            // overflow hidden
-            onStart: ()=>bodyEl.classList.remove('oh')
-            ,
             onComplete: ()=>{
                 this.isAnimating = false;
             }
