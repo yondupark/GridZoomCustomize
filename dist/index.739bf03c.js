@@ -1342,7 +1342,7 @@ class Grid {
         const cellrect = _utils.adjustedBoundingRect(this.imageCellArr[this.currentCell].DOM.el);
         return {
             scale: winsize.width * 0.54 / cellrect.width,
-            x: winsize.width * 0.65 - (cellrect.left + cellrect.width / 2),
+            x: winsize.width * 0.3 - (cellrect.left + cellrect.width / 2),
             y: winsize.height * 0.5 - (cellrect.top + cellrect.height / 2)
         };
     }

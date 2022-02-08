@@ -344,7 +344,7 @@ export class Grid {
         const cellrect = adjustedBoundingRect(this.imageCellArr[this.currentCell].DOM.el);
         return {
             scale: winsize.width * 0.54 / cellrect.width,
-            x: winsize.width * 0.65 - (cellrect.left + cellrect.width/2),
+            x: winsize.width * 0.30 - (cellrect.left + cellrect.width/2),
             y: winsize.height * 0.50 - (cellrect.top + cellrect.height/2)
         };
     }
