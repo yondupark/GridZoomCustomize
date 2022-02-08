@@ -524,7 +524,7 @@ var _grid = require("./grid");
 // Initialize the grid
 new _grid.Grid(document.querySelector('.grid--large'));
 // Preload images then remove loader (loading class) from body
-_utils.preloadImages('.grid__cell-img-inner, .slide-nav__img').then(()=>document.body.classList.remove('loading')
+_utils.preloadImages('.grid__cell-img-inner').then(()=>document.body.classList.remove('loading')
 );
 
 },{"./utils":"72Dku","./grid":"5bMWt"}],"72Dku":[function(require,module,exports) {
@@ -1203,11 +1203,6 @@ class Grid {
             onComplete: ()=>_gsap.gsap.set(imageCell.DOM.inner, {
                     willChange: ''
                 })
-        }, 'start').to([
-            imageCell.contentItem.DOM.nav.prev,
-            imageCell.contentItem.DOM.nav.next
-        ], {
-            y: 0
         }, 'start').to(this.otherImageCells, {
             opacity: 0,
             scale: 0.8,
@@ -1273,10 +1268,6 @@ class Grid {
                     willChange: '',
                     zIndex: 1
                 })
-        }, 'showGrid').to(imageCell.contentItem.DOM.nav.prev, {
-            y: '-100%'
-        }, 'showGrid').to(imageCell.contentItem.DOM.nav.next, {
-            y: '100%'
         }, 'showGrid').to(this.otherImageCells, {
             opacity: 1,
             scale: 1,
@@ -1332,10 +1323,6 @@ class Grid {
                     willChange: '',
                     zIndex: 1
                 })
-        }, 'start').to(imageCell.contentItem.DOM.nav.prev, {
-            y: '-100%'
-        }, 'start').to(imageCell.contentItem.DOM.nav.next, {
-            y: '100%'
         }, 'start').addLabel('showContent', '>-=0.4').set(upcomingImageCell.DOM.el, {
             zIndex: 100
         }, 'start').to(upcomingImageCell.DOM.el, {
@@ -1346,13 +1333,7 @@ class Grid {
             onComplete: ()=>_gsap.gsap.set(upcomingImageCell.DOM.el, {
                     willChange: ''
                 })
-        }, 'start').to([
-            upcomingImageCell.contentItem.DOM.nav.prev,
-            upcomingImageCell.contentItem.DOM.nav.next
-        ], {
-            ease: 'expo',
-            y: 0
-        }, 'showContent').add(()=>{
+        }, 'start').add(()=>{
             upcomingImageCell.contentItem.textReveal.in();
             upcomingImageCell.contentItem.textLinesReveal.in();
         }, 'showContent').add(()=>{
@@ -1430,10 +1411,6 @@ class ContentItem {
      * @param {Element} DOM_el - the .content__item element.
      */ constructor(DOM_el){
         this.DOM.el = DOM_el;
-        this.DOM.nav = {
-            prev: this.DOM.el.querySelector('.slide-nav__img--prev'),
-            next: this.DOM.el.querySelector('.slide-nav__img--next')
-        };
         // Text animations
         this.textReveal = new _textReveal.TextReveal([
             ...this.DOM.el.querySelectorAll('.oh')

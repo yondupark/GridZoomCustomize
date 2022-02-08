@@ -1,4 +1,4 @@
-# Grid Zoom Layout
+# Grid Zoom Layout for Vue.JS
 
 A simple image grid layout where a small grid image zooms to become larger while a content view opens.
 

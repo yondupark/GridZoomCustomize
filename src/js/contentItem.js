@@ -21,11 +21,6 @@ export class ContentItem {
      */
     constructor(DOM_el) {
         this.DOM.el = DOM_el;
-        this.DOM.nav = {
-            prev: this.DOM.el.querySelector('.slide-nav__img--prev'),
-            next: this.DOM.el.querySelector('.slide-nav__img--next')
-        };
-
         // Text animations
         this.textReveal = new TextReveal([...this.DOM.el.querySelectorAll('.oh')]);
         // Text lines animations

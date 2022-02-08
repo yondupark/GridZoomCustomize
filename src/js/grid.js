@@ -197,9 +197,6 @@ export class Grid {
             scale: 1,
             onComplete: () => gsap.set(imageCell.DOM.inner, {willChange: ''})
         }, 'start')
-        .to([imageCell.contentItem.DOM.nav.prev, imageCell.contentItem.DOM.nav.next], {
-            y: 0
-        }, 'start')
         .to(this.otherImageCells, {
             opacity: 0,
             scale: 0.8,
@@ -266,12 +263,6 @@ export class Grid {
             y: 0,
             onComplete: () => gsap.set(imageCell.DOM.el, {willChange: '', zIndex: 1})
         }, 'showGrid')
-        .to(imageCell.contentItem.DOM.nav.prev, {
-            y: '-100%'
-        }, 'showGrid')
-        .to(imageCell.contentItem.DOM.nav.next, {
-            y: '100%'
-        }, 'showGrid')
         .to(this.otherImageCells, {
             opacity: 1,
             scale: 1,
@@ -329,13 +320,6 @@ export class Grid {
             y: 0,
             onComplete: () => gsap.set(imageCell.DOM.el, {willChange: '', zIndex: 1})
         }, 'start')
-        .to(imageCell.contentItem.DOM.nav.prev, {
-            y: '-100%'
-        }, 'start')
-        .to(imageCell.contentItem.DOM.nav.next, {
-            y: '100%'
-        }, 'start')
-        
         .addLabel('showContent', '>-=0.4')
         .set(upcomingImageCell.DOM.el, {
             zIndex: 100
@@ -347,10 +331,6 @@ export class Grid {
             opacity: 1,
             onComplete: () => gsap.set(upcomingImageCell.DOM.el, {willChange: ''})
         }, 'start')
-        .to([upcomingImageCell.contentItem.DOM.nav.prev, upcomingImageCell.contentItem.DOM.nav.next], {
-            ease: 'expo',
-            y: 0
-        }, 'showContent')
         .add(() => {
             upcomingImageCell.contentItem.textReveal.in();
             upcomingImageCell.contentItem.textLinesReveal.in();
